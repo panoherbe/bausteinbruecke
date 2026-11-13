@@ -1,0 +1,20 @@
+baustein_id: B-LS
+name: Sicherheitslaserscanner
+version: "1.0.0"
+typ: sensor
+ebene: P
+beschreibung: Überwacht Schutzfelder im Fahrweg.
+attribute:
+  - {name: reichweite, wert: 5500, einheit: mm}
+  - {name: abtastrate, wert: 25, einheit: Hz}
+messgroesse: Hindernis im Schutzfeld
+schnittstellen:
+  - {name: meldung, art: Datenport}
+zustaende:
+  - {name: frei}
+  - {name: warnfeldVerletzt}
+  - {name: schutzfeldVerletzt}
+funktionen:
+  - {id: F-FF-03, name: hindernisErkennen, text: Hindernisse und Personen im Fahrweg erkennen}
+erfuellt: [R-21]
+semantik: {begriff: Schutzfeldsensor, iri: "https://example.org/bausteine/begriff/Schutzfeldsensor"}

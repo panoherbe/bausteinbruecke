@@ -1,0 +1,8 @@
+# Abbildungsregel für den Bausteintyp „sensor“: wie „komponente“, dazu die Messgröße.
+typ: sensor
+sysml: part def
+erbt: komponente
+felder:
+  messgroesse:
+    ziel: "doc „Messgröße: …“"
+    umwandeln: "Die Messgröße steht als Text im Modell; die Projektbibliothek hat dafür noch keinen Typ."

@@ -1,0 +1,25 @@
+# docker compose up -d --wait pruefer gegenstellen   # OMG-Prüfdienst und nachgebildete Gegenstellen
+# docker compose run --rm test                         # alle Tests (Szenario „eine Änderung erreicht alle Werkzeuge“, Störfälle)
+# docker compose run --rm messen                       # Messlauf -> nachweis/<datum>/
+services:
+  pruefer:
+    build: ./pruefer
+    healthcheck: {test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8100/')"], interval: 5s, retries: 30}
+  gegenstellen:
+    build: .
+    command: ["python", "gegenstellen/server.py"]
+    healthcheck: {test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8200/_stand')"], interval: 2s, retries: 15}
+  test:
+    build: .
+    profiles: [werkzeug]
+    environment: {PRUEFER: "http://pruefer:8100", GEGENSTELLEN: "http://gegenstellen:8200", TZ: "Europe/Berlin"}
+    depends_on: {pruefer: {condition: service_healthy}, gegenstellen: {condition: service_healthy}}
+    command: ["python", "-m", "pytest", "-q", "-p", "no:cacheprovider", "--junitxml=/app/aus/tests.xml"]
+    volumes: ["./aus:/app/aus"]
+  messen:
+    build: .
+    profiles: [werkzeug]
+    environment: {PRUEFER: "http://pruefer:8100", GEGENSTELLEN: "http://gegenstellen:8200", TZ: "Europe/Berlin"}
+    depends_on: {pruefer: {condition: service_healthy}, gegenstellen: {condition: service_healthy}}
+    command: ["python", "messen.py"]
+    volumes: ["./nachweis:/app/nachweis", "./demo:/app/demo"]

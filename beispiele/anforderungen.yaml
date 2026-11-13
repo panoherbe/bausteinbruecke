@@ -1,0 +1,9 @@
+# Anforderungsstand (synthetisch). R-12 fehlt absichtlich: ein Baustein verweist darauf -> „offene Referenz“.
+roboterarm:
+  - {id: R-10, name: nutzlast, text: "Der Roboterarm bewegt Teile bis 12 kg."}
+  - {id: R-11, name: greifkraft, text: "Der Greifer hält Teile sicher mit mindestens 120 N."}
+  - {id: R-13, name: bilderkennung, text: "Teile werden vor dem Greifen optisch erkannt."}
+flurfoerderfahrzeug:
+  - {id: R-20, name: fahrgeschwindigkeit, text: "Das Fahrzeug fährt im Automatikbetrieb höchstens 1,5 m/s."}
+  - {id: R-21, name: personenschutz, text: "Personen im Fahrweg werden erkannt; das Fahrzeug hält vorher an."}
+  - {id: R-22, name: leitsystem, text: "Das Fahrzeug empfängt Fahraufträge und meldet seinen Zustand."}

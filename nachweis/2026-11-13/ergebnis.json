@@ -1,0 +1,1457 @@
+{
+  "datum": "2026-11-13",
+  "zeit": "2026-11-13T04:10:37",
+  "rechner": "x86_64, 16 Kerne, Python 3.13.18",
+  "hinweis": "Synthetische Beispielbausteine; Gegenstellen nachgebildet (simuliert); Werkzeugprüfung mit der OMG-SysML-v2-Pilotimplementierung.",
+  "zugangstest": [
+    {
+      "ziel": "KI-Assistenz",
+      "erreichbar": true,
+      "http": 404,
+      "antwort": {
+        "meldung": "Baustein B-XX unbekannt"
+      },
+      "dauer_ms": 0.8
+    },
+    {
+      "ziel": "Gegenstellen-Stand",
+      "erreichbar": true,
+      "http": 200,
+      "antwort": {
+        "gespeichert": {
+          "ki": 0,
+          "modell": 0,
+          "graph": 0
+        },
+        "schreibvorgaenge": {
+          "ki": 0,
+          "modell": 0,
+          "graph": 0
+        }
+      },
+      "dauer_ms": 0.7
+    }
+  ],
+  "demonstratoren": {
+    "roboterarm": {
+      "paket": "Roboterarm",
+      "bausteine": [
+        "B-GA Gelenkantrieb 2.0.0",
+        "B-GM Greifermodul 1.2.0",
+        "B-KM Kameramodul 1.0.0"
+      ],
+      "bericht": [
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "baustein_id",
+          "status": "übernommen",
+          "ziel": "Kurzname <'…'> und Metadaten Herkunft.bausteinId",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "name",
+          "status": "übernommen",
+          "ziel": "Name der part def",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "version",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.version",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "typ",
+          "status": "übernommen",
+          "ziel": "Wahl dieser Regel",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "ebene",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.ebene (RFLP)",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "semantik",
+          "status": "übernommen",
+          "ziel": "Metadaten Semantik (Begriff, IRI)",
+          "grund": "https://example.org/bausteine/begriff/Antrieb"
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "beschreibung",
+          "status": "übernommen",
+          "ziel": "doc",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "attribute.nennmoment",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::torque [SI::N*SI::m]",
+          "grund": "12 Nm"
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "attribute.maxDrehzahl",
+          "status": "umgewandelt",
+          "ziel": "attribute : Real, Einheit im doc",
+          "grund": "Die Einheit „1/min“ hat (noch) keine Zeile in der Einheitentabelle; der Zahlwert 3000 ist übernommen, die Einheit steht als Text daneben."
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "attribute.masse",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::mass [SI::kg]",
+          "grund": "1.8 kg"
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "schnittstellen.steuerung",
+          "status": "übernommen",
+          "ziel": "port : Steuerport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "schnittstellen.versorgung",
+          "status": "übernommen",
+          "ziel": "port : Energieport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "zustaende.bereit",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "zustaende.inBewegung",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "zustaende.gebremst",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "funktionen.F-RA-01",
+          "status": "übernommen",
+          "ziel": "action und allocate",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "name": "Gelenkantrieb",
+          "feld": "erfuellt.R-10",
+          "status": "übernommen",
+          "ziel": "satisfy",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "cad_datei",
+          "status": "nicht abbildbar",
+          "ziel": "–",
+          "grund": "Für „cad_datei“ ist keine Abbildung vereinbart; die Angabe bleibt in der Quelle (greifer_v12.step) und steht hier im Bericht."
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "baustein_id",
+          "status": "übernommen",
+          "ziel": "Kurzname <'…'> und Metadaten Herkunft.bausteinId",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "name",
+          "status": "übernommen",
+          "ziel": "Name der part def",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "version",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.version",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "typ",
+          "status": "übernommen",
+          "ziel": "Wahl dieser Regel",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "ebene",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.ebene (RFLP)",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "semantik",
+          "status": "übernommen",
+          "ziel": "Metadaten Semantik (Begriff, IRI)",
+          "grund": "https://example.org/bausteine/begriff/Greifer"
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "beschreibung",
+          "status": "übernommen",
+          "ziel": "doc",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "attribute.maxGreifkraft",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::force [SI::N]",
+          "grund": "140 N"
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "attribute.hub",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::length [SI::mm]",
+          "grund": "40 mm"
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "attribute.greifzeit",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::time [SI::s]",
+          "grund": "0.35 s"
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "attribute.schutzart",
+          "status": "übernommen",
+          "ziel": "attribute : String",
+          "grund": "IP54"
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "schnittstellen.steuerung",
+          "status": "übernommen",
+          "ziel": "port : Steuerport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "schnittstellen.versorgung",
+          "status": "übernommen",
+          "ziel": "port : Energieport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "zustaende.offen",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "zustaende.geschlossen",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "zustaende.stoerung",
+          "status": "umgewandelt",
+          "ziel": "state mit doc",
+          "grund": "Die Bedingung ist Freitext; sie steht als Text am Zustand, bis eine formale Form festgelegt ist."
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "funktionen.F-RA-03",
+          "status": "übernommen",
+          "ziel": "action und allocate",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "erfuellt.R-11",
+          "status": "übernommen",
+          "ziel": "satisfy",
+          "grund": ""
+        },
+        {
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "name": "Greifermodul",
+          "feld": "erfuellt.R-12",
+          "status": "offene Referenz",
+          "ziel": "–",
+          "grund": "R-12 gibt es im Anforderungsstand nicht; die Beziehung wird nicht erfunden, sondern als offene Referenz an den Anforderungsstand gemeldet."
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "baustein_id",
+          "status": "übernommen",
+          "ziel": "Kurzname <'…'> und Metadaten Herkunft.bausteinId",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "name",
+          "status": "übernommen",
+          "ziel": "Name der part def",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "version",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.version",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "typ",
+          "status": "übernommen",
+          "ziel": "Wahl dieser Regel",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "ebene",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.ebene (RFLP)",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "semantik",
+          "status": "übernommen",
+          "ziel": "Metadaten Semantik (Begriff, IRI)",
+          "grund": "https://example.org/bausteine/begriff/Kamera"
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "beschreibung",
+          "status": "übernommen",
+          "ziel": "doc",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "messgroesse",
+          "status": "umgewandelt",
+          "ziel": "doc „Messgröße: …“",
+          "grund": "Die Messgröße steht als Text im Modell; die Projektbibliothek hat dafür noch keinen Typ."
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "attribute.bildrate",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::frequency [SI::Hz]",
+          "grund": "30 Hz"
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "attribute.aufloesung",
+          "status": "übernommen",
+          "ziel": "attribute : String",
+          "grund": "1920 x 1080"
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "schnittstellen.bilddaten",
+          "status": "übernommen",
+          "ziel": "port : Datenport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "zustaende.aus",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "zustaende.erfasst",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "funktionen.F-RA-02",
+          "status": "übernommen",
+          "ziel": "action und allocate",
+          "grund": ""
+        },
+        {
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "name": "Kameramodul",
+          "feld": "erfuellt.R-13",
+          "status": "übernommen",
+          "ziel": "satisfy",
+          "grund": ""
+        }
+      ],
+      "zusammenfassung": {
+        "übernommen": 47,
+        "umgewandelt": 3,
+        "nicht abbildbar": 1,
+        "offene Referenz": 1,
+        "ampel": "gelb"
+      },
+      "werkzeug": {
+        "ok": true,
+        "warnungen": [],
+        "fehler": [],
+        "dauer_s": 1.774,
+        "kernel": "jupyter-sysml-kernel 0.63.1"
+      },
+      "rueckweg": {
+        "elemente": 568,
+        "benannt": 70,
+        "geprueft": 50,
+        "wiedergefunden": 50,
+        "verloren": []
+      },
+      "dauer_abbilden_s": 0.0064,
+      "dauer_uebertragen_s": 0.028,
+      "uebertragung": [
+        {
+          "ziel": "KI-Assistenz",
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "B-GA 2.0.0 gespeichert"
+        },
+        {
+          "ziel": "Modellverwaltung",
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "Stand 2.0.0 angelegt (Vorgänger –)"
+        },
+        {
+          "ziel": "Wissensgraph",
+          "baustein": "B-GA",
+          "version": "2.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "5 Tripel übernommen"
+        },
+        {
+          "ziel": "KI-Assistenz",
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "B-GM 1.2.0 gespeichert"
+        },
+        {
+          "ziel": "Modellverwaltung",
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "Stand 1.2.0 angelegt (Vorgänger –)"
+        },
+        {
+          "ziel": "Wissensgraph",
+          "baustein": "B-GM",
+          "version": "1.2.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "5 Tripel übernommen"
+        },
+        {
+          "ziel": "KI-Assistenz",
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "B-KM 1.0.0 gespeichert"
+        },
+        {
+          "ziel": "Modellverwaltung",
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "Stand 1.0.0 angelegt (Vorgänger –)"
+        },
+        {
+          "ziel": "Wissensgraph",
+          "baustein": "B-KM",
+          "version": "1.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "5 Tripel übernommen"
+        }
+      ]
+    },
+    "flurfoerderfahrzeug": {
+      "paket": "Flurfoerderfahrzeug",
+      "bausteine": [
+        "B-AE Antriebseinheit 1.1.0",
+        "B-LS Sicherheitslaserscanner 1.0.0",
+        "B-NR Navigationsrechner 3.2.0"
+      ],
+      "bericht": [
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "baustein_id",
+          "status": "übernommen",
+          "ziel": "Kurzname <'…'> und Metadaten Herkunft.bausteinId",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "name",
+          "status": "übernommen",
+          "ziel": "Name der part def",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "version",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.version",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "typ",
+          "status": "übernommen",
+          "ziel": "Wahl dieser Regel",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "ebene",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.ebene (RFLP)",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "semantik",
+          "status": "übernommen",
+          "ziel": "Metadaten Semantik (Begriff, IRI)",
+          "grund": "https://example.org/bausteine/begriff/Antrieb"
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "beschreibung",
+          "status": "übernommen",
+          "ziel": "doc",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "attribute.maxGeschwindigkeit",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::speed [SI::m/SI::s]",
+          "grund": "1.5 m/s"
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "attribute.nennspannung",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::electricPotentialDifference [SI::V]",
+          "grund": "48 V"
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "schnittstellen.steuerung",
+          "status": "übernommen",
+          "ziel": "port : Steuerport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "schnittstellen.versorgung",
+          "status": "übernommen",
+          "ziel": "port : Energieport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "zustaende.stillstand",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "zustaende.fahrt",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "zustaende.notHalt",
+          "status": "umgewandelt",
+          "ziel": "state mit doc",
+          "grund": "Die Bedingung ist Freitext; sie steht als Text am Zustand, bis eine formale Form festgelegt ist."
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "funktionen.F-FF-02",
+          "status": "übernommen",
+          "ziel": "action und allocate",
+          "grund": ""
+        },
+        {
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "name": "Antriebseinheit",
+          "feld": "erfuellt.R-20",
+          "status": "übernommen",
+          "ziel": "satisfy",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "baustein_id",
+          "status": "übernommen",
+          "ziel": "Kurzname <'…'> und Metadaten Herkunft.bausteinId",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "name",
+          "status": "übernommen",
+          "ziel": "Name der part def",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "version",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.version",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "typ",
+          "status": "übernommen",
+          "ziel": "Wahl dieser Regel",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "ebene",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.ebene (RFLP)",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "semantik",
+          "status": "übernommen",
+          "ziel": "Metadaten Semantik (Begriff, IRI)",
+          "grund": "https://example.org/bausteine/begriff/Schutzfeldsensor"
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "beschreibung",
+          "status": "übernommen",
+          "ziel": "doc",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "messgroesse",
+          "status": "umgewandelt",
+          "ziel": "doc „Messgröße: …“",
+          "grund": "Die Messgröße steht als Text im Modell; die Projektbibliothek hat dafür noch keinen Typ."
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "attribute.reichweite",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::length [SI::mm]",
+          "grund": "5500 mm"
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "attribute.abtastrate",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::frequency [SI::Hz]",
+          "grund": "25 Hz"
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "schnittstellen.meldung",
+          "status": "übernommen",
+          "ziel": "port : Datenport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "zustaende.frei",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "zustaende.warnfeldVerletzt",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "zustaende.schutzfeldVerletzt",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "funktionen.F-FF-03",
+          "status": "übernommen",
+          "ziel": "action und allocate",
+          "grund": ""
+        },
+        {
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "name": "Sicherheitslaserscanner",
+          "feld": "erfuellt.R-21",
+          "status": "übernommen",
+          "ziel": "satisfy",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "baustein_id",
+          "status": "übernommen",
+          "ziel": "Kurzname <'…'> und Metadaten Herkunft.bausteinId",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "name",
+          "status": "übernommen",
+          "ziel": "Name der part def",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "version",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.version",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "typ",
+          "status": "übernommen",
+          "ziel": "Wahl dieser Regel",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "ebene",
+          "status": "übernommen",
+          "ziel": "Metadaten Herkunft.ebene (RFLP)",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "semantik",
+          "status": "übernommen",
+          "ziel": "Metadaten Semantik (Begriff, IRI)",
+          "grund": "https://example.org/bausteine/begriff/Steuerrechner"
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "beschreibung",
+          "status": "übernommen",
+          "ziel": "doc",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "attribute.zykluszeit",
+          "status": "übernommen",
+          "ziel": "attribute :> ISQ::time [SI::s]",
+          "grund": "0.05 s"
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "attribute.betriebssystem",
+          "status": "übernommen",
+          "ziel": "attribute : String",
+          "grund": "Linux"
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "schnittstellen.leitsystem",
+          "status": "übernommen",
+          "ziel": "port : Datenport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "schnittstellen.fahrbefehl",
+          "status": "übernommen",
+          "ziel": "port : Steuerport",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "zustaende.hochfahren",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "zustaende.bereit",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "zustaende.auftragAktiv",
+          "status": "übernommen",
+          "ziel": "state",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "funktionen.F-FF-01",
+          "status": "übernommen",
+          "ziel": "action und allocate",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "funktionen.F-FF-04",
+          "status": "übernommen",
+          "ziel": "action und allocate",
+          "grund": ""
+        },
+        {
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "name": "Navigationsrechner",
+          "feld": "erfuellt.R-22",
+          "status": "übernommen",
+          "ziel": "satisfy",
+          "grund": ""
+        }
+      ],
+      "zusammenfassung": {
+        "übernommen": 47,
+        "umgewandelt": 2,
+        "nicht abbildbar": 0,
+        "offene Referenz": 0,
+        "ampel": "gelb"
+      },
+      "werkzeug": {
+        "ok": true,
+        "warnungen": [],
+        "fehler": [],
+        "dauer_s": 1.814,
+        "kernel": "jupyter-sysml-kernel 0.63.1"
+      },
+      "rueckweg": {
+        "elemente": 550,
+        "benannt": 66,
+        "geprueft": 49,
+        "wiedergefunden": 49,
+        "verloren": []
+      },
+      "dauer_abbilden_s": 0.0068,
+      "dauer_uebertragen_s": 0.025,
+      "uebertragung": [
+        {
+          "ziel": "KI-Assistenz",
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "B-AE 1.1.0 gespeichert"
+        },
+        {
+          "ziel": "Modellverwaltung",
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "Stand 1.1.0 angelegt (Vorgänger –)"
+        },
+        {
+          "ziel": "Wissensgraph",
+          "baustein": "B-AE",
+          "version": "1.1.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "5 Tripel übernommen"
+        },
+        {
+          "ziel": "KI-Assistenz",
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "B-LS 1.0.0 gespeichert"
+        },
+        {
+          "ziel": "Modellverwaltung",
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "Stand 1.0.0 angelegt (Vorgänger –)"
+        },
+        {
+          "ziel": "Wissensgraph",
+          "baustein": "B-LS",
+          "version": "1.0.0",
+          "ergebnis": "abgelehnt mit Grund",
+          "versuche": 1,
+          "meldung": "Begriff im Wissensgraph unbekannt: https://example.org/bausteine/begriff/Schutzfeldsensor (offene Referenz an die Zuständigen des Wissensgraphen); nichts geschrieben"
+        },
+        {
+          "ziel": "KI-Assistenz",
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "B-NR 3.2.0 gespeichert"
+        },
+        {
+          "ziel": "Modellverwaltung",
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "Stand 3.2.0 angelegt (Vorgänger –)"
+        },
+        {
+          "ziel": "Wissensgraph",
+          "baustein": "B-NR",
+          "version": "3.2.0",
+          "ergebnis": "übertragen",
+          "versuche": 1,
+          "meldung": "5 Tripel übernommen"
+        }
+      ]
+    }
+  },
+  "lauf1": {
+    "ampel": "gelb",
+    "zaehlung": {
+      "übertragen": 17,
+      "abgelehnt mit Grund": 1
+    }
+  },
+  "neue_version": {
+    "quelle": {
+      "baustein": "B-GM",
+      "von": "1.2.0",
+      "nach": "1.3.0",
+      "neu": [
+        "vorgaenger",
+        "zustaende.quittiert"
+      ],
+      "weg": [],
+      "geaendert": {
+        "attribute.maxGreifkraft": [
+          "140 N",
+          "160 N"
+        ],
+        "version": [
+          "1.2.0",
+          "1.3.0"
+        ]
+      }
+    },
+    "werkzeug_baustein": {
+      "elemente_alt": 568,
+      "elemente_neu": 570,
+      "neu": [
+        "Roboterarm::GreifermodulZustaende::quittiert"
+      ],
+      "weg": [],
+      "geaendert": {
+        "Roboterarm::Greifermodul": [
+          [
+            "",
+            "1.2.0",
+            "B-GM",
+            "Greifer",
+            "P",
+            "https://example.org/bausteine/begriff/Greifer"
+          ],
+          [
+            "1.2.0",
+            "1.3.0",
+            "B-GM",
+            "Greifer",
+            "P",
+            "https://example.org/bausteine/begriff/Greifer"
+          ]
+        ],
+        "Roboterarm::Greifermodul::maxGreifkraft": [
+          [
+            "140"
+          ],
+          [
+            "160"
+          ]
+        ]
+      },
+      "gleiche_element_ids": 15
+    },
+    "werkzeug_zustaende": {
+      "elemente_alt": 568,
+      "elemente_neu": 570,
+      "neu": [
+        "Roboterarm::GreifermodulZustaende::quittiert"
+      ],
+      "weg": [],
+      "geaendert": {},
+      "gleiche_element_ids": 15
+    },
+    "werkzeug_ok": true,
+    "rueckweg": {
+      "geprueft": 52,
+      "wiedergefunden": 52
+    },
+    "zusammenfassung": {
+      "übernommen": 49,
+      "umgewandelt": 3,
+      "nicht abbildbar": 1,
+      "offene Referenz": 1,
+      "ampel": "gelb"
+    },
+    "element_ids": {
+      "gesamt": 568,
+      "gleich_bei_zweitem_einlesen": 15,
+      "gleich_alt_neu": 15
+    },
+    "uebertragung": [
+      {
+        "ziel": "KI-Assistenz",
+        "baustein": "B-GM",
+        "version": "1.3.0",
+        "ergebnis": "übertragen",
+        "versuche": 1,
+        "meldung": "B-GM 1.3.0 gespeichert"
+      },
+      {
+        "ziel": "Modellverwaltung",
+        "baustein": "B-GM",
+        "version": "1.3.0",
+        "ergebnis": "übertragen",
+        "versuche": 1,
+        "meldung": "Stand 1.3.0 angelegt (Vorgänger 1.2.0)"
+      },
+      {
+        "ziel": "Wissensgraph",
+        "baustein": "B-GM",
+        "version": "1.3.0",
+        "ergebnis": "übertragen",
+        "versuche": 1,
+        "meldung": "9 Tripel übernommen"
+      }
+    ],
+    "ampel": "grün"
+  },
+  "assistenz": {
+    "aktuell": {
+      "http": 200,
+      "version": "1.3.0",
+      "notiz": "Neu gegenüber 1.2.0: maxGreifkraft 140 → 160; Zustand „quittiert“"
+    },
+    "unbekannte_version": {
+      "http": 404,
+      "meldung": "Version 9.9.9 von B-GM unbekannt; bekannt: 1.2.0, 1.3.0. Keine Ersatzantwort."
+    }
+  },
+  "stoerfaelle": {
+    "paralleler_stand": {
+      "ergebnis": "Konflikt gemeldet",
+      "meldung": "Paralleler Stand: aktueller Kopf ist 1.3.0, Ihr Vorgänger 1.2.0; nichts überschrieben, bitte zusammenführen"
+    },
+    "gegenstelle_aus": {
+      "ergebnis": "offen",
+      "versuche": 3,
+      "dauer_s": 0.15,
+      "ampel": "rot",
+      "geschrieben": 0
+    },
+    "nachgeholt": {
+      "ergebnis": "übertragen",
+      "versuche": 1
+    },
+    "antwort_verloren": {
+      "ergebnis": "schon vorhanden (keine Dublette)",
+      "versuche": 2
+    },
+    "nochmal_gesendet": {
+      "ergebnis": "schon vorhanden (keine Dublette)"
+    },
+    "unbekannter_begriff": {
+      "ziel": "Wissensgraph",
+      "baustein": "B-LS",
+      "version": "1.0.0",
+      "ergebnis": "abgelehnt mit Grund",
+      "versuche": 1,
+      "meldung": "Begriff im Wissensgraph unbekannt: https://example.org/bausteine/begriff/Schutzfeldsensor (offene Referenz an die Zuständigen des Wissensgraphen); nichts geschrieben"
+    },
+    "vor_dem_senden_abgelehnt": {
+      "ergebnis": "vor dem Senden abgelehnt",
+      "meldung": "Schema: '1.3' does not match '^\\\\d+\\\\.\\\\d+\\\\.\\\\d+$'"
+    },
+    "stand_gegenstellen": {
+      "gespeichert": {
+        "ki": 7,
+        "modell": 8,
+        "graph": 7
+      },
+      "schreibvorgaenge": {
+        "ki": 7,
+        "modell": 8,
+        "graph": 7
+      }
+    },
+    "dubletten": {
+      "ki": 0,
+      "modell": 0,
+      "graph": 0
+    }
+  },
+  "skalierung": [
+    {
+      "faktor": 1,
+      "bausteine": 6,
+      "angaben": 101,
+      "zeilen_sysml": 143,
+      "werkzeug_ok": true,
+      "export_ok": true,
+      "export_fehler": "",
+      "elemente": 1052,
+      "dauer_abbilden_s": 0.009,
+      "dauer_werkzeug_s": 2.69,
+      "dauer_rueckweg_s": 0.001,
+      "dauer_uebertragen_s": 0.06,
+      "vorgaenge": 18,
+      "ampel": "gelb",
+      "rueckweg": "99/99",
+      "meldungen": [],
+      "simuliert": false
+    },
+    {
+      "faktor": 10,
+      "bausteine": 60,
+      "angaben": 1010,
+      "zeilen_sysml": 1241,
+      "werkzeug_ok": true,
+      "export_ok": true,
+      "export_fehler": "",
+      "elemente": 9629,
+      "dauer_abbilden_s": 0.094,
+      "dauer_werkzeug_s": 26.754,
+      "dauer_rueckweg_s": 0.091,
+      "dauer_uebertragen_s": 0.5,
+      "vorgaenge": 180,
+      "ampel": "gelb",
+      "rueckweg": "990/990",
+      "meldungen": [],
+      "simuliert": true
+    },
+    {
+      "faktor": 100,
+      "bausteine": 600,
+      "angaben": 10100,
+      "zeilen_sysml": 12221,
+      "werkzeug_ok": true,
+      "export_ok": false,
+      "export_fehler": "Export lieferte kein JSON RuntimeException: UTF16 String size is 1377926491, should be less than 1073741823",
+      "elemente": 0,
+      "dauer_abbilden_s": 1.033,
+      "dauer_werkzeug_s": 286.761,
+      "dauer_rueckweg_s": 0.0,
+      "dauer_uebertragen_s": 8.91,
+      "vorgaenge": 1800,
+      "ampel": "gelb",
+      "rueckweg": "0/0",
+      "meldungen": [],
+      "simuliert": true
+    },
+    {
+      "faktor": 100,
+      "bausteine": 600,
+      "pakete": 10,
+      "werkzeug_ok": true,
+      "elemente": 96290,
+      "dauer_werkzeug_s": 260.33,
+      "dauer_gesamt_s": 278.13,
+      "rueckweg": "9900/9900",
+      "simuliert": true
+    }
+  ],
+  "aufwand": {
+    "regel_komponente_zeilen": 16,
+    "regel_sensor_zeilen": 7,
+    "einheitentabelle_zeilen": 9,
+    "adapter_zeilen": {
+      "KI-Assistenz": 16,
+      "Modellverwaltung": 14,
+      "Wissensgraph": 12
+    },
+    "kern_zeilen": 121,
+    "speicher_mb_client": 1225.1,
+    "abhaengigkeiten": [
+      "pyyaml (MIT)",
+      "rdflib (BSD-3)",
+      "pyshacl (Apache-2.0)",
+      "jsonschema (MIT)",
+      "OMG SysML v2 Pilotimplementierung (EPL-2.0)"
+    ],
+    "lizenzkosten_je_arbeitsplatz_eur": 0
+  },
+  "tests": {
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "dauer_s": 7.8,
+    "namen": [
+      "test_abbildung_ist_im_werkzeug_gueltig_und_kommt_vollstaendig_zurueck[roboterarm]",
+      "test_abbildung_ist_im_werkzeug_gueltig_und_kommt_vollstaendig_zurueck[flurfoerderfahrzeug]",
+      "test_bericht_nennt_jede_angabe_und_verschweigt_nichts",
+      "test_falscher_text_wird_vom_werkzeug_abgelehnt",
+      "test_schritt1_neue_version_genau_die_aenderungen",
+      "test_schritt1_im_werkzeug_gleiche_aenderungen_und_baustein_id",
+      "test_werkzeug_vergibt_bei_jedem_einlesen_neue_element_ids",
+      "test_schritt2_paralleler_stand_meldet_konflikt_und_ueberschreibt_nichts",
+      "test_schritt3_graph_kennt_nachfolger_und_lehnt_unbekannte_begriffe_ab",
+      "test_schritt3_gegenstelle_aus_wird_offen_und_spaeter_ohne_dublette_nachgeholt",
+      "test_antwort_verloren_wiederholung_schreibt_nicht_doppelt",
+      "test_schritt4_assistenz_bekommt_aktuellen_stand_mit_notiz_und_keine_ersatzantwort",
+      "test_ungueltige_nutzlast_wird_nicht_gesendet",
+      "test_protokoll_hat_eine_zeile_je_vorgang_ohne_zugangsdaten"
+    ]
+  }
+}

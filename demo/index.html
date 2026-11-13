@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bausteinbrücke – Vorführung</title>
+<meta name="description" content="Geführte Vorführung: ein Baustein wird nach SysML v2 übersetzt, kommt in neuer Version und erreicht drei Werkzeuge, auch wenn eines ausfällt. Aufgezeichnete Ergebnisse des Messlaufs.">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14181f;--mut:#5b6573;--line:#e3e7ed;--acc:#0b6e69;--acc2:#e6f3f2;
+--gruen:#1f8a4c;--gruen2:#e7f5ec;--gelb:#a86a00;--gelb2:#fff4dc;--rot:#b3261e;--rot2:#fdeceb;--blau:#2456a6;--blau2:#e9f0fb;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--r:14px}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1318;--card:#171c23;--ink:#e8ecf1;--mut:#9aa5b3;--line:#2a313b;--acc:#4fc3b9;--acc2:#12302e;
+--gruen:#5fd08e;--gruen2:#15301f;--gelb:#f0b44c;--gelb2:#33280f;--rot:#ff8a80;--rot2:#3a1715;--blau:#8fb3ff;--blau2:#16233b}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.kopf{max-width:1120px;margin:auto;padding:12px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.marke{font-weight:700;letter-spacing:-.01em}.marke small{font-weight:500;color:var(--mut);margin-left:8px}
+.schritte{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.schritte button{border:1px solid var(--line);background:var(--card);color:var(--mut);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+.schritte button[aria-current=true]{background:var(--acc);border-color:var(--acc);color:#fff}
+.schritte button.erledigt{color:var(--acc);border-color:var(--acc)}
+main{max-width:1120px;margin:auto;padding:28px 20px 80px}
+section{display:none}section.aktiv{display:block;animation:ein .35s ease}
+@keyframes ein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .4em}
+h2{font-size:clamp(23px,3vw,30px);line-height:1.2;letter-spacing:-.015em;margin:.1em 0 .3em}
+h3{font-size:18px;margin:0 0 .4em}
+.lead{font-size:19px;color:var(--mut);max-width:62ch;margin:0 0 22px}
+.nr{display:inline-block;font-size:13px;font-weight:600;color:var(--acc);background:var(--acc2);padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.karte{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.raster{display:grid;gap:18px}.zwei{grid-template-columns:1fr 1fr}.drei{grid-template-columns:repeat(3,1fr)}.vier{grid-template-columns:repeat(4,1fr)}
+@media (max-width:860px){.zwei,.drei,.vier{grid-template-columns:1fr}}
+.knopf{display:inline-flex;align-items:center;gap:10px;border:0;background:var(--acc);color:#fff;font:inherit;font-weight:600;padding:13px 22px;border-radius:12px;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.knopf:hover{filter:brightness(1.07)}.knopf:disabled{opacity:.45;cursor:default}
+.knopf.leise{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.aktionen{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:22px 0 4px}
+.hinweis{font-size:14px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:15px}td,th{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:13px;color:var(--mut);font-weight:600}
+pre{margin:0;font:13.5px/1.55 var(--mono);white-space:pre-wrap;word-break:break-word;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;max-height:430px;overflow:auto}
+.z{display:block;padding:0 6px;margin:0 -6px;border-radius:4px;transition:background .4s}
+.z.hell{background:var(--gelb2)}.z.neu{background:var(--gruen2)}
+.zahl{font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.zahlk{font-size:14px;color:var(--mut)}
+.kachel{border-radius:12px;padding:14px 16px;border:1px solid var(--line);background:var(--card);cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.kachel[aria-pressed=true]{outline:2px solid var(--acc);outline-offset:1px}
+.k-gruen{background:var(--gruen2);border-color:transparent}.k-gruen .zahl{color:var(--gruen)}
+.k-gelb{background:var(--gelb2);border-color:transparent}.k-gelb .zahl{color:var(--gelb)}
+.k-rot{background:var(--rot2);border-color:transparent}.k-rot .zahl{color:var(--rot)}
+.k-blau{background:var(--blau2);border-color:transparent}.k-blau .zahl{color:var(--blau)}
+.punkt{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:1px}
+.p-gruen{background:var(--gruen)}.p-gelb{background:var(--gelb)}.p-rot{background:var(--rot)}.p-grau{background:var(--line)}
+.ziel{display:flex;flex-direction:column;gap:8px;min-height:150px}
+.ziel .titel{font-weight:700}.ziel .rolle{font-size:14px;color:var(--mut)}
+.status{font-size:15px;padding:10px 12px;border-radius:10px;background:var(--bg);min-height:46px}
+.status.gruen{background:var(--gruen2)}.status.gelb{background:var(--gelb2)}.status.rot{background:var(--rot2)}
+.fluss{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:600}
+.fluss span.pfeil{color:var(--acc)}
+.chip{display:inline-block;font-size:13px;padding:2px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line);margin:2px 4px 2px 0}
+.ampel{display:inline-flex;align-items:center;font-weight:700;padding:6px 12px;border-radius:999px}
+.a-gruen{background:var(--gruen2);color:var(--gruen)}.a-gelb{background:var(--gelb2);color:var(--gelb)}.a-rot{background:var(--rot2);color:var(--rot)}
+.leiste{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.versuch{font-family:var(--mono);font-size:14px}
+.unten{display:flex;justify-content:space-between;gap:12px;margin-top:30px;flex-wrap:wrap}
+.fuss{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-size:14px;color:var(--mut)}
+a{color:var(--acc)}
+.versteckt{display:none}
+.diff{font-family:var(--mono);font-size:15px}.alt{color:var(--rot);text-decoration:line-through}.neuw{color:var(--gruen);font-weight:700}
+.grund{font-size:14px;color:var(--mut)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="kopf">
+  <div class="marke">Bausteinbrücke <small>Vorführung</small></div>
+  <nav class="schritte" aria-label="Schritte" id="nav"></nav>
+</div></header>
+<main>
+
+<section data-titel="Start" class="aktiv">
+  <span class="nr">Vorführung · etwa 3 Minuten</span>
+  <h1>Ein Baustein, drei Werkzeuge,<br>und nichts geht still verloren.</h1>
+  <p class="lead">Die Bausteinbrücke übersetzt Bausteinbeschreibungen nach SysML v2, prüft das Ergebnis mit der offiziellen
+  SysML-v2-Software und übergibt es an KI-Assistenz, Modellverwaltung und Wissensgraph. Nach jedem Lauf sagt ein Bericht,
+  was übernommen, umgewandelt, nicht abbildbar oder offen ist.</p>
+  <div class="raster vier" id="startzahlen"></div>
+  <div class="aktionen"><button class="knopf" data-weiter>Vorführung starten →</button>
+  <span class="hinweis">Sie sehen die aufgezeichneten Ergebnisse des Messlaufs vom <b data-datum></b>. In Ihrem Browser läuft kein Werkzeug, und nichts wird gesendet.</span></div>
+</section>
+
+<section data-titel="1 Übersetzen">
+  <span class="nr">Schritt 1 von 4</span>
+  <h2>Der Baustein wird nach SysML v2 übersetzt</h2>
+  <p class="lead">Links die Beschreibung des Greifermoduls, wie sie ein Partner liefert. Rechts das, was daraus im
+  Modell steht. Eine Regel je Bausteintyp, nicht je Werkzeug.</p>
+  <div class="raster zwei">
+    <div class="karte"><h3>Bausteinbeschreibung (Quelle)</h3><pre id="quelle"></pre></div>
+    <div class="karte"><h3>SysML v2 (Ergebnis)</h3><pre id="sysml1"></pre></div>
+  </div>
+  <div class="aktionen"><button class="knopf" id="pruefen1">Im Werkzeug prüfen und Bericht zeigen</button></div>
+  <div id="bericht1" class="versteckt">
+    <p class="leiste"><span class="ampel a-gruen" id="werkzeug1"></span><span class="ampel a-gruen" id="rueck1"></span></p>
+    <div class="raster vier" id="spalten1" style="margin-top:14px"></div>
+    <div class="karte" style="margin-top:14px"><h3 id="listetitel1">Was im Bericht steht</h3><table><thead><tr><th>Baustein</th><th>Angabe</th><th>Ergebnis</th><th>Grund</th></tr></thead><tbody id="liste1"></tbody></table></div>
+  </div>
+  <div class="unten"><button class="knopf leise" data-zurueck>← Zurück</button><button class="knopf" data-weiter>Weiter: neue Version →</button></div>
+</section>
+
+<section data-titel="2 Neue Version">
+  <span class="nr">Schritt 2 von 4</span>
+  <h2>Eine neue Version kommt an</h2>
+  <p class="lead">Das Greifermodul geht von 1.2.0 auf 1.3.0: mehr Greifkraft und ein neuer Zustand. Die Brücke erkennt genau
+  diese Änderungen, auch im Werkzeug, und hängt die neue Version an die alte.</p>
+  <div class="aktionen"><button class="knopf" id="version">Version 1.3.0 einspielen</button></div>
+  <div id="versionsblock" class="versteckt">
+    <div class="raster drei">
+      <div class="karte"><h3>Geändert</h3><div id="geaendert" class="diff"></div></div>
+      <div class="karte"><h3>Neu</h3><div id="neu" class="diff"></div></div>
+      <div class="karte"><h3>Weggefallen</h3><div id="weg" class="diff"></div></div>
+    </div>
+    <div class="karte" style="margin-top:18px"><div class="fluss"><span class="chip">B-GM 1.2.0</span><span class="pfeil">→ Nachfolger →</span><span class="chip">B-GM 1.3.0</span><span class="hinweis" style="font-weight:400">Baustein-ID bleibt gleich; die Versionen bilden eine Kette.</span></div>
+    <p class="hinweis" id="ids" style="margin:12px 0 0"></p></div>
+    <div class="karte" style="margin-top:18px"><h3>Im Modell</h3><pre id="sysml2"></pre></div>
+  </div>
+  <div class="unten"><button class="knopf leise" data-zurueck>← Zurück</button><button class="knopf" data-weiter>Weiter: an die Werkzeuge →</button></div>
+</section>
+
+<section data-titel="3 Übergeben">
+  <span class="nr">Schritt 3 von 4</span>
+  <h2>Die neue Version erreicht alle drei Werkzeuge</h2>
+  <p class="lead">Drei kleine Anschlüsse auf einem gemeinsamen Kern: jeder prüft vor dem Senden, schreibt jeden Stand nur
+  einmal und protokolliert jeden Vorgang.</p>
+  <div class="raster drei" id="ziele"></div>
+  <div class="aktionen"><button class="knopf" id="uebergeben">Übergeben</button><span id="ampel3"></span></div>
+  <div id="frageblock" class="karte versteckt" style="margin-top:18px">
+    <h3>Die KI-Assistenz fragt: „Welcher Stand des Greifermoduls gilt?“</h3>
+    <p id="antwort" style="margin:.2em 0"></p>
+    <p class="hinweis" id="antwort9"></p>
+  </div>
+  <div class="unten"><button class="knopf leise" data-zurueck>← Zurück</button><button class="knopf" data-weiter>Weiter: Störung ausprobieren →</button></div>
+</section>
+
+<section data-titel="4 Störung">
+  <span class="nr">Schritt 4 von 4</span>
+  <h2>Und wenn etwas schiefgeht?</h2>
+  <p class="lead">Wählen Sie eine Störung. Jede ist im Messlauf wirklich eingetreten; die Zeilen kommen aus dem Protokoll.</p>
+  <div class="raster vier" id="stoerknoepfe"></div>
+  <div class="karte" style="margin-top:18px" id="stoerbild" aria-live="polite"><p class="hinweis" style="margin:0">Noch keine Störung gewählt.</p></div>
+  <div class="unten"><button class="knopf leise" data-zurueck>← Zurück</button><button class="knopf" data-weiter>Weiter: Zahlen und Aufwand →</button></div>
+</section>
+
+<section data-titel="Zahlen">
+  <span class="nr">Zum Schluss</span>
+  <h2>Was gemessen ist und was es kostet</h2>
+  <p class="lead" id="zahlenlead"></p>
+  <div class="raster vier" id="endzahlen"></div>
+  <div class="raster zwei" style="margin-top:18px">
+    <div class="karte"><h3>Wie es wächst</h3><table><thead><tr><th>Bausteine</th><th>Prüfung im Werkzeug</th><th>Rückweg</th><th>Übergabe</th></tr></thead><tbody id="skal"></tbody></table>
+    <p class="hinweis" id="skalhinweis"></p></div>
+    <div class="karte"><h3>Was eine Erweiterung kostet</h3><table><tbody id="aufwand"></tbody></table></div>
+  </div>
+  <div class="karte" style="margin-top:18px"><h3>Selbst prüfen</h3>
+  <p style="margin:.2em 0">Quellcode, alle Tests und das Messprotokoll: <a id="repo" href="https://github.com/panoherbe/bausteinbruecke" target="_blank" rel="noopener">github.com/panoherbe/bausteinbruecke</a>. Mit Docker startet Ihre IT alles in wenigen Minuten:
+  <code>docker compose up -d --wait pruefer gegenstellen</code>, dann <code>docker compose run --rm test</code>.</p></div>
+  <div class="unten"><button class="knopf leise" data-zurueck>← Zurück</button><button class="knopf" data-start>Noch einmal von vorn</button></div>
+</section>
+
+<div class="fuss">Bausteinbrücke · Panagiotis Herbe · Quellcode AGPL-3.0 · Alle Bausteine und Werte sind erfunden (synthetisch). Die drei Werkzeuge sind im Prototyp nachgebildet; geprüft wird mit der OMG-SysML-v2-Pilotimplementierung (<span data-kernel></span>).</div>
+</main>
+<script src="quellen.js"></script>
+<script src="daten.js"></script>
+<script>
+"use strict";
+const D = window.DATEN, $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const de = n => Number(n).toLocaleString("de-DE"), dat = iso => iso.split("-").reverse().join(".");
+const sek = x => Number(x).toLocaleString("de-DE", {maximumFractionDigits: x < 1 ? 2 : 1}) + " s";
+const FELD = {"vorgaenger": "Vorgänger 1.2.0 (Versionskette)", "version": "Version"};
+const feld = k => FELD[k] || k.replace(/^attribute\./, "Attribut ").replace(/^zustaende\./, "Zustand ").replace(/^schnittstellen\./, "Schnittstelle ")
+  .replace(/^funktionen\./, "Funktion ").replace(/^erfuellt\./, "erfüllt ").replace(/^semantik$/, "Begriff (Semantik)").replace(/^cad_datei$/, "CAD-Datei").replace(/^messgroesse$/, "Messgröße").replace(/^beschreibung$/, "Beschreibung");
+const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const RA = D.demonstratoren.roboterarm, FF = D.demonstratoren.flurfoerderfahrzeug;
+$$("[data-datum]").forEach(e => e.textContent = dat(D.datum));
+$$("[data-kernel]").forEach(e => e.textContent = RA.werkzeug.kernel);
+
+// Navigation
+const secs = $$("section"); let akt = 0;
+secs.forEach((s, i) => { const b = document.createElement("button"); b.textContent = s.dataset.titel; b.onclick = () => zeige(i); $("#nav").append(b); });
+function zeige(i) { akt = Math.max(0, Math.min(secs.length - 1, i)); secs.forEach((s, j) => s.classList.toggle("aktiv", j === akt));
+  $$("#nav button").forEach((b, j) => { b.setAttribute("aria-current", j === akt); b.classList.toggle("erledigt", j < akt); });
+  window.scrollTo({top: 0, behavior: "smooth"}); }
+$$("[data-weiter]").forEach(b => b.onclick = () => zeige(akt + 1));
+$$("[data-zurueck]").forEach(b => b.onclick = () => zeige(akt - 1));
+$$("[data-start]").forEach(b => b.onclick = () => location.reload());
+zeige(0);
+
+const kachel = (zahl, text, art = "") => `<div class="kachel ${art}"><div class="zahl">${zahl}</div><div class="zahlk">${text}</div></div>`;
+const zs = RA.zusammenfassung, zf = FF.zusammenfassung;
+$("#startzahlen").innerHTML =
+  kachel(`${RA.rueckweg.wiedergefunden + FF.rueckweg.wiedergefunden}/${RA.rueckweg.geprueft + FF.rueckweg.geprueft}`, "Angaben nach dem Rückweg aus dem Werkzeug wiedergefunden", "k-gruen") +
+  kachel("0", "Dubletten nach Ausfall und verlorener Antwort (Werkzeuge nachgebildet)", "k-gruen") +
+  kachel(`${D.tests.tests - D.tests.failures - D.tests.errors}/${D.tests.tests}`, "automatische Tests bestanden", "k-blau") +
+  kachel("3", "Werkzeuge, nachgebildet: KI-Assistenz, Modellverwaltung, Wissensgraph", "k-blau");
+
+// Schritt 1
+const gm = RA.text.split("\n"), q = window.QUELLEN || {};
+$("#quelle").textContent = q["roboterarm/greifermodul-1.2.0.yaml"] || "";
+const block = (text, name) => { const z = text.split("\n"); const a = z.findIndex(l => l.includes(`> ${name} {`) && l.includes("part def"));
+  let e = a; while (e < z.length && z[e] !== "    }") e++; const zs = z.findIndex(l => l.includes(`state def ${name}Zustaende`)); let ze = zs; while (ze < z.length && z[ze] !== "    }") ze++;
+  return [...z.slice(zs, ze + 1), ...z.slice(a, e + 1)].map(l => l.replace(/^    /, "")); };
+const zeilen = (arr, hell = [], neu = []) => arr.map(l => `<span class="z ${hell.some(h => l.includes(h)) ? "hell" : ""} ${neu.some(h => l.includes(h)) ? "neu" : ""}">${esc(l) || " "}</span>`).join("");
+$("#sysml1").innerHTML = zeilen(block(RA.text, "Greifermodul"));
+$("#pruefen1").onclick = () => {
+  $("#bericht1").classList.remove("versteckt"); $("#pruefen1").disabled = true;
+  $("#werkzeug1").innerHTML = `✓ Im Werkzeug gültig (${de(RA.rueckweg.elemente)} Elemente, ${sek(RA.werkzeug.dauer_s)})`;
+  $("#rueck1").innerHTML = `✓ Rückweg: ${RA.rueckweg.wiedergefunden} von ${RA.rueckweg.geprueft} Angaben wiedergefunden`;
+  const sp = [["übernommen", "k-gruen", "steht unverändert im Modell"], ["umgewandelt", "k-gelb", "steht im Modell, in anderer Form"],
+              ["nicht abbildbar", "k-rot", "bleibt in der Quelle, mit Grund"], ["offene Referenz", "k-blau", "Ziel gibt es noch nicht"]];
+  $("#spalten1").innerHTML = sp.map(([k, art, t]) => `<button class="kachel ${art}" data-filter="${k}" aria-pressed="false"><div class="zahl">${zs[k]}</div><div class="zahlk"><b>${k}</b> · ${t}</div></button>`).join("");
+  const liste = f => { const rows = RA.bericht.filter(e => f ? e.status === f : e.status !== "übernommen");
+    $("#listetitel1").textContent = f ? `Alle Angaben „${f}“ (${rows.length})` : "Alles, was nicht 1:1 übernommen wurde";
+    $("#liste1").innerHTML = rows.map(e => `<tr><td>${esc(e.name)} ${esc(e.version)}</td><td>${esc(feld(e.feld))}</td><td><span class="punkt ${{"übernommen":"p-gruen","umgewandelt":"p-gelb","nicht abbildbar":"p-rot","offene Referenz":"p-grau"}[e.status]}"></span>${e.status}</td><td class="grund">${esc(e.grund || e.ziel)}</td></tr>`).join(""); };
+  liste(""); $$("[data-filter]").forEach(b => b.onclick = () => { const an = b.getAttribute("aria-pressed") !== "true";
+    $$("[data-filter]").forEach(x => x.setAttribute("aria-pressed", "false")); b.setAttribute("aria-pressed", an); liste(an ? b.dataset.filter : ""); });
+};
+
+// Schritt 2
+const NV = D.neue_version;
+$("#version").onclick = () => { $("#version").disabled = true; $("#versionsblock").classList.remove("versteckt");
+  $("#geaendert").innerHTML = Object.entries(NV.quelle.geaendert).map(([k, [a, b]]) => `<div>${esc(feld(k))}<br><span class="alt">${esc(a)}</span> → <span class="neuw">${esc(b)}</span></div>`).join("<br>");
+  $("#neu").innerHTML = NV.quelle.neu.map(k => `<div class="neuw">+ ${esc(feld(k))}</div>`).join("");
+  $("#weg").innerHTML = NV.quelle.weg.length ? NV.quelle.weg.map(k => `<div class="alt">${esc(k)}</div>`).join("") : '<div class="neuw">nichts</div>';
+  const e = NV.element_ids;
+  $("#ids").innerHTML = `Im Werkzeug bestätigt: gleiche Änderungen, nichts weggefallen. Gut zu wissen: Das Werkzeug vergibt beim Einlesen neue interne Kennungen (nur ${e.gleich_bei_zweitem_einlesen} von ${de(e.gesamt)} blieben gleich, gemessen). Darum hängt die Identität an Baustein-ID und Version, nicht an diesen Kennungen.`;
+  const neuText = block(NV.text, "Greifermodul");
+  $("#sysml2").innerHTML = zeilen(neuText, ["maxGreifkraft", "version = \"1.3.0\""], ["quittiert"]);
+};
+
+// Schritt 3
+const ZIELE = [["KI-Assistenz", "liest Bausteine nach Kennung und Version"], ["Modellverwaltung", "führt Stände mit Vorgänger, nie überschreiben"], ["Wissensgraph", "Knoten je Kennung und Version, geprüft mit SHACL"]];
+$("#ziele").innerHTML = ZIELE.map(([t, r], i) => `<div class="karte ziel"><div class="titel"><span class="punkt p-grau" id="pz${i}"></span>${t}</div><div class="rolle">${r}</div><div class="status" id="sz${i}">wartet</div></div>`).join("");
+$("#uebergeben").onclick = () => { $("#uebergeben").disabled = true;
+  NV.uebertragung.forEach((v, i) => setTimeout(() => { const j = ZIELE.findIndex(z => z[0] === v.ziel);
+    $(`#pz${j}`).className = "punkt p-gruen"; $(`#sz${j}`).className = "status gruen"; $(`#sz${j}`).innerHTML = `✓ ${esc(v.ergebnis)}<br><span class="hinweis">${esc(v.meldung)}</span>`;
+    if (i === NV.uebertragung.length - 1) { $("#ampel3").innerHTML = `<span class="ampel a-${NV.ampel === "grün" ? "gruen" : NV.ampel === "gelb" ? "gelb" : "rot"}">Ampel der Übertragung: ${NV.ampel}, alles übertragen</span>`;
+      $("#frageblock").classList.remove("versteckt");
+      $("#antwort").innerHTML = `<b>Antwort: Version ${D.assistenz.aktuell.version}.</b> ${esc(D.assistenz.aktuell.notiz)}.`;
+      $("#antwort9").innerHTML = `Fragt sie nach einer Version, die es nicht gibt (9.9.9), kommt keine erfundene Antwort, sondern: „${esc(D.assistenz.unbekannte_version.meldung)}“`; }
+  }, 450 * (i + 1)));
+};
+
+// Schritt 4
+const S = D.stoerfaelle;
+const FAELLE = [
+  ["Wissensgraph fällt aus", "rot", () => `<h3>Der Wissensgraph antwortet nicht</h3>
+     <p class="versuch">Versuch 1 … nicht erreichbar<br>Versuch 2 … nicht erreichbar<br>Versuch 3 … nicht erreichbar</p>
+     <p><span class="ampel a-rot">Ampel: rot</span> Der Vorgang steht als <b>„${S.gegenstelle_aus.ergebnis}“</b> im Protokoll. Geschrieben wurde: ${S.gegenstelle_aus.geschrieben}. Ein halbes Ergebnis zählt nie als Erfolg.</p>
+     <p><b>Wieder erreichbar:</b> nächster Lauf → „${S.nachgeholt.ergebnis}“ im ${S.nachgeholt.versuche}. Versuch. Nochmal gesendet → „${S.nochmal_gesendet.ergebnis}“.</p>`],
+  ["Antwort geht verloren", "gelb", () => `<h3>Geschrieben, aber die Bestätigung kommt nicht an</h3>
+     <p>Die Modellverwaltung legt den Stand an, die Antwort geht unterwegs verloren. Die Brücke wiederholt; der Schlüssel aus Baustein-ID, Version und Vorgang verhindert ein zweites Schreiben.</p>
+     <p class="versuch">Versuch 1 … keine Antwort<br>Versuch ${S.antwort_verloren.versuche} … ${S.antwort_verloren.ergebnis}</p>
+     <p><span class="ampel a-gruen">Dubletten: ${S.dubletten.ki + S.dubletten.modell + S.dubletten.graph}</span> in allen drei Werkzeugen nach dem ganzen Messlauf.</p>`],
+  ["Zwei ändern parallel", "gelb", () => `<h3>Ein paralleler Stand trifft auf 1.3.0</h3>
+     <p>Jemand legt 1.3.1 an, aber auf Basis von 1.2.0. Die Modellverwaltung meldet:</p>
+     <p class="status gelb">„${esc(S.paralleler_stand.meldung)}“</p><p>Ergebnis: <b>${S.paralleler_stand.ergebnis}</b>. Entscheiden müssen Menschen; die Brücke führt nichts still zusammen.</p>`],
+  ["Unbekannter Begriff", "gelb", () => `<h3>Der Wissensgraph kennt einen Begriff nicht</h3>
+     <p>Der Laserscanner verweist auf den Begriff „Schutzfeldsensor“, den es im Wissensgraphen noch nicht gibt.</p>
+     <p class="status gelb">„${esc(S.unbekannter_begriff.meldung)}“</p><p>Nichts wird erfunden. Der Hinweis geht an die Zuständigen des Wissensgraphen; alles andere ist übertragen.</p>
+     <p class="hinweis">Und eine fehlerhafte Angabe (Version „1.3“) wird schon vor dem Senden abgelehnt: ${esc(S.vor_dem_senden_abgelehnt.meldung)}.</p>`],
+];
+$("#stoerknoepfe").innerHTML = FAELLE.map(([t, a], i) => `<button class="kachel k-${a === "rot" ? "rot" : "gelb"}" data-fall="${i}" aria-pressed="false"><div style="font-weight:700;font-size:17px">${t}</div><div class="zahlk">ausprobieren</div></button>`).join("");
+$$("[data-fall]").forEach(b => b.onclick = () => { $$("[data-fall]").forEach(x => x.setAttribute("aria-pressed", "false")); b.setAttribute("aria-pressed", "true"); $("#stoerbild").innerHTML = FAELLE[+b.dataset.fall][2](); });
+
+// Zahlen
+const sk = D.skalierung, a = D.aufwand;
+$("#zahlenlead").textContent = `Messlauf vom ${dat(D.datum)} auf einem Kleinrechner (16 logische Kerne). Die 10- und 100-fache Menge ist vervielfältigt und damit simuliert.`;
+$("#endzahlen").innerHTML = kachel(`${D.tests.tests - D.tests.failures - D.tests.errors}/${D.tests.tests}`, `automatische Tests in ${sek(D.tests.dauer_s)}`, "k-blau") +
+  kachel(`${RA.rueckweg.wiedergefunden + FF.rueckweg.wiedergefunden}/${RA.rueckweg.geprueft + FF.rueckweg.geprueft}`, "Angaben aus dem Werkzeug wiedergefunden", "k-gruen") +
+  kachel("0 €", "Lizenzkosten je Arbeitsplatz, nur offene Bausteine", "k-gruen") +
+  kachel(`${a.regel_sensor_zeilen} Zeilen`, "für einen neuen Bausteintyp (Regel „Sensor“)", "k-blau");
+$("#skal").innerHTML = sk.map(s => `<tr><td>${de(s.bausteine)}${s.pakete ? ` in ${s.pakete} Paketen` : ""}${s.simuliert ? " <span class='hinweis'>(simuliert)</span>" : ""}</td><td>${s.werkzeug_ok && s.export_ok !== false ? "✓ " + sek(s.dauer_werkzeug_s) : s.werkzeug_ok ? "gültig, Export leer" : "✗ Fehler"}</td><td>${s.rueckweg}</td><td>${s.dauer_uebertragen_s !== undefined ? sek(s.dauer_uebertragen_s) : "–"}</td></tr>`).join("");
+$("#skalhinweis").textContent = "Gelernt: Bei 600 Bausteinen in einem einzigen Paket liefert der Export des Prüfwerkzeugs kein Ergebnis mehr. In Teilsystemen zu je 60 Bausteinen klappt alles, und die Prüfzeit wächst gleichmäßig mit.";
+$("#aufwand").innerHTML = [["Neuer Bausteintyp", `${a.regel_sensor_zeilen} Zeilen Regel (Sensor erbt von Komponente)`], ["Neue Einheit", "eine Zeile in der Einheitentabelle"],
+  ["Neue Gegenstelle", `ein Adapter mit ${Math.min(...Object.values(a.adapter_zeilen))}–${Math.max(...Object.values(a.adapter_zeilen))} Zeilen; Prüfung, Wiederholung und Protokoll kommen vom Kern`],
+  ["Lizenzen", a.abhaengigkeiten.join(", ")]].map(([k, v]) => `<tr><th style="width:38%">${k}</th><td>${esc(v)}</td></tr>`).join("");
+</script>
+</body>
+</html>

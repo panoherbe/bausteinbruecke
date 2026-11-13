@@ -1,0 +1,18 @@
+# Abbildungsregel für den Bausteintyp „komponente“: eine Regel je Bausteintyp, nicht je Werkzeug.
+# Jedes Feld der Bausteinbeschreibung hat genau eine Zeile. Felder ohne Zeile meldet der Bericht als „nicht abbildbar“.
+typ: komponente
+sysml: part def
+felder:
+  baustein_id:    {ziel: "Kurzname <'…'> und Metadaten Herkunft.bausteinId"}
+  name:           {ziel: "Name der part def"}
+  version:        {ziel: "Metadaten Herkunft.version"}
+  vorgaenger:     {ziel: "Metadaten Herkunft.vorgaenger (Versionskette)"}
+  typ:            {ziel: "Wahl dieser Regel"}
+  ebene:          {ziel: "Metadaten Herkunft.ebene (RFLP)"}
+  beschreibung:   {ziel: "doc"}
+  attribute:      {ziel: "attribute mit ISQ-Größe und SI-Einheit; Text als String"}
+  schnittstellen: {ziel: "port mit port def"}
+  zustaende:      {ziel: "state def und exhibit state"}
+  funktionen:     {ziel: "action im Paket Funktionen und allocate"}
+  erfuellt:       {ziel: "satisfy; Ziel aus dem Anforderungsstand"}
+  semantik:       {ziel: "Metadaten Semantik (Begriff, IRI)"}

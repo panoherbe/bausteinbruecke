@@ -1,0 +1,21 @@
+baustein_id: B-GA
+name: Gelenkantrieb
+version: "2.0.0"
+typ: komponente
+ebene: P
+beschreibung: Servoantrieb mit Getriebe für ein Gelenk des Roboterarms.
+attribute:
+  - {name: nennmoment, wert: 12, einheit: Nm}
+  - {name: maxDrehzahl, wert: 3000, einheit: 1/min}
+  - {name: masse, wert: 1.8, einheit: kg}
+schnittstellen:
+  - {name: steuerung, art: Steuerport}
+  - {name: versorgung, art: Energieport}
+zustaende:
+  - {name: bereit}
+  - {name: inBewegung}
+  - {name: gebremst}
+funktionen:
+  - {id: F-RA-01, name: gelenkBewegen, text: Gelenk auf Sollwinkel bewegen}
+erfuellt: [R-10]
+semantik: {begriff: Antrieb, iri: "https://example.org/bausteine/begriff/Antrieb"}

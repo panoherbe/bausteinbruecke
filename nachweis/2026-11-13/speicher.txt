@@ -1,0 +1,10 @@
+Arbeitsspeicher der Container (docker stats), 13.11.2026
+nach dem ganzen Messlauf (zuletzt 600 Bausteine geprüft):
+pruefer 5.814GiB / 62.43GiB
+gegenstellen 31.52MiB / 62.43GiB
+frisch gestartet:
+pruefer 578.6MiB / 62.43GiB
+gegenstellen 31.18MiB / 62.43GiB
+nach einem Testlauf (14 Tests):
+pruefer 966.6MiB / 62.43GiB
+gegenstellen 31.61MiB / 62.43GiB

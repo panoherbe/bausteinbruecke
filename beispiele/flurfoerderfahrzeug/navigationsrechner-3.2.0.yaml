@@ -1,0 +1,21 @@
+baustein_id: B-NR
+name: Navigationsrechner
+version: "3.2.0"
+typ: komponente
+ebene: L
+beschreibung: Rechner für Lokalisierung, Routenplanung und Leitsystemanbindung.
+attribute:
+  - {name: zykluszeit, wert: 0.05, einheit: s}
+  - {name: betriebssystem, wert: Linux}
+schnittstellen:
+  - {name: leitsystem, art: Datenport}
+  - {name: fahrbefehl, art: Steuerport}
+zustaende:
+  - {name: hochfahren}
+  - {name: bereit}
+  - {name: auftragAktiv}
+funktionen:
+  - {id: F-FF-01, name: navigieren, text: Position bestimmen und Route planen}
+  - {id: F-FF-04, name: kommunizieren, text: Fahraufträge empfangen und Zustand melden}
+erfuellt: [R-22]
+semantik: {begriff: Steuerrechner, iri: "https://example.org/bausteine/begriff/Steuerrechner"}

@@ -1,0 +1,12 @@
+[project]
+name = "bausteinbruecke"
+version = "0.1.0"
+description = "Bringt Bausteinbeschreibungen nach SysML v2 und zu den Werkzeugen, mit Bericht für jede Angabe"
+license = "AGPL-3.0-only"
+authors = [{name = "Panagiotis Herbe"}]
+requires-python = ">=3.11"
+dependencies = ["pyyaml", "rdflib", "pyshacl", "jsonschema"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,24 @@
+# Bausteinbeschreibung (synthetisch, frei erfunden)
+baustein_id: B-GM
+name: Greifermodul
+version: "1.2.0"
+typ: komponente
+ebene: P
+beschreibung: Elektrischer Zwei-Finger-Greifer am Handgelenk des Roboterarms.
+attribute:
+  - {name: maxGreifkraft, wert: 140, einheit: N}
+  - {name: hub, wert: 40, einheit: mm}
+  - {name: greifzeit, wert: 0.35, einheit: s}
+  - {name: schutzart, wert: IP54}
+schnittstellen:
+  - {name: steuerung, art: Steuerport}
+  - {name: versorgung, art: Energieport}
+zustaende:
+  - {name: offen}
+  - {name: geschlossen}
+  - {name: stoerung, bedingung: "Greifkraft nach 2 s nicht erreicht"}
+funktionen:
+  - {id: F-RA-03, name: objektGreifen, text: Objekt greifen und halten}
+erfuellt: [R-11, R-12]
+semantik: {begriff: Greifer, iri: "https://example.org/bausteine/begriff/Greifer"}
+cad_datei: greifer_v12.step

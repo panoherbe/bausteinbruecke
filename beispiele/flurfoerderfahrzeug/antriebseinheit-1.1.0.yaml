@@ -1,0 +1,20 @@
+baustein_id: B-AE
+name: Antriebseinheit
+version: "1.1.0"
+typ: komponente
+ebene: P
+beschreibung: Zwei Antriebsräder mit Motoren und Bremsen.
+attribute:
+  - {name: maxGeschwindigkeit, wert: 1.5, einheit: m/s}
+  - {name: nennspannung, wert: 48, einheit: V}
+schnittstellen:
+  - {name: steuerung, art: Steuerport}
+  - {name: versorgung, art: Energieport}
+zustaende:
+  - {name: stillstand}
+  - {name: fahrt}
+  - {name: notHalt, bedingung: "sofort, wenn die Sicherheitssteuerung abschaltet"}
+funktionen:
+  - {id: F-FF-02, name: fahren, text: Fahrzeug entlang der Route bewegen}
+erfuellt: [R-20]
+semantik: {begriff: Antrieb, iri: "https://example.org/bausteine/begriff/Antrieb"}

@@ -1,0 +1,19 @@
+baustein_id: B-KM
+name: Kameramodul
+version: "1.0.0"
+typ: sensor
+ebene: P
+beschreibung: Kamera über dem Arbeitsbereich zur Teileerkennung.
+attribute:
+  - {name: bildrate, wert: 30, einheit: Hz}
+  - {name: aufloesung, wert: "1920 x 1080"}
+messgroesse: Lage und Art des Teils
+schnittstellen:
+  - {name: bilddaten, art: Datenport}
+zustaende:
+  - {name: aus}
+  - {name: erfasst}
+funktionen:
+  - {id: F-RA-02, name: teilErkennen, text: Teil im Arbeitsbereich erkennen}
+erfuellt: [R-13]
+semantik: {begriff: Kamera, iri: "https://example.org/bausteine/begriff/Kamera"}
